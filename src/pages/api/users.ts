@@ -25,6 +25,7 @@ const handler = async (req: NextRequest) => {
 
   const config = {
     status: 200,
+    method: "GET",
     headers: {
       "Cache-Control": "s-maxage=1, stale-while-revalidate",
     },
