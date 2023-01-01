@@ -22,6 +22,7 @@ const handler = async (req: NextRequest) => {
     }),
     headers: {
       "x-api-key": apiKey,
+      "Cache-Control": "s-maxage=1, stale-while-revalidate",
     },
   });
 
