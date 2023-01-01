@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "./page.module.scss";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const RootPage = () => {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -18,7 +18,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -87,5 +87,7 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
-}
+  );
+};
+
+export default RootPage;

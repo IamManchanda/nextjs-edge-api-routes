@@ -1,10 +1,10 @@
-import './globals.css'
+import "./layout.global.scss";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       {/*
@@ -14,5 +14,7 @@ export default function RootLayout({
       <head />
       <body>{children}</body>
     </html>
-  )
-}
+  );
+};
+
+export default RootLayout;
