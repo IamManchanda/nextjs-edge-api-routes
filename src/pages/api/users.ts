@@ -32,6 +32,7 @@ const handler = async (req: NextRequest) => {
       "Cache-Control": "max-age=0, s-maxage=60",
     },
   };
+
   return NextResponse.json(data, config);
 };
 
