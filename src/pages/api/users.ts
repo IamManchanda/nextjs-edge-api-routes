@@ -24,8 +24,14 @@ const handler = async (req: NextRequest) => {
     }),
     headers: { "x-api-key": apiKey },
   });
+
   const data = await response.json();
-  const config = { status: 200 };
+  const config = {
+    status: 200,
+    headers: {
+      "Cache-Control": "max-age=0, s-maxage=1",
+    },
+  };
   return NextResponse.json(data, config);
 };
 
