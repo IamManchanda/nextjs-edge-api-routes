@@ -20,7 +20,7 @@ const handler = async (req: NextRequest) => {
     method: "POST",
     body: JSON.stringify({
       query: getUserCollection,
-      variables: { first: 10 },
+      variables: { last: 10 },
     }),
     headers: { "x-api-key": apiKey },
   });

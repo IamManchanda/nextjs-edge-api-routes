@@ -1,6 +1,6 @@
 export const getUserCollection = `
-  query GetUserCollection($first: Int!) {
-    userCollection(first: $first) {
+  query GetUserCollection($last: Int!) {
+    userCollection(last: $last) {
       edges {
         node {
           email
