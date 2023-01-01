@@ -10,6 +10,10 @@ const apiUrl = process.env.GRAFBASE_API_URL as RequestInfo | URL;
 const apiKey = process.env.GRAFBASE_API_KEY as string;
 
 const handler = async (req: NextRequest) => {
+  if (req.method !== "GET") {
+    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+  }
+
   const response = await fetch(apiUrl, {
     method: "POST",
     body: JSON.stringify({
