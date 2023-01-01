@@ -11,7 +11,9 @@ const apiKey = process.env.GRAFBASE_API_KEY as string;
 
 const handler = async (req: NextRequest) => {
   if (req.method !== "GET") {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
+    const errorData = { error: "Method not allowed" };
+    const errorConfig = { status: 405 };
+    return NextResponse.json(errorData, errorConfig);
   }
 
   const response = await fetch(apiUrl, {
@@ -20,22 +22,10 @@ const handler = async (req: NextRequest) => {
       query: getUserCollection,
       variables: { first: 10 },
     }),
-    headers: {
-      "x-api-key": apiKey,
-      "Cache-Control": "s-maxage=1, stale-while-revalidate",
-    },
+    headers: { "x-api-key": apiKey },
   });
-
   const data = await response.json();
-
-  const config = {
-    status: 200,
-    method: "GET",
-    headers: {
-      "Cache-Control": "s-maxage=1, stale-while-revalidate",
-    },
-  };
-
+  const config = { status: 200 };
   return NextResponse.json(data, config);
 };
 
